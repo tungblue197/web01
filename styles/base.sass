@@ -1,0 +1,48 @@
+$main-color1: #383838
+$main-color2: #fdfdfd
+$white-color: #fff
+$sub-color: #40bea7
+$text-color: #3f3f3f
+
+$topbar-height: 4rem
+$header-height: 11.6rem
+*,*::before,*::after
+    margin: 0
+
+html
+    box-sizing: border-box
+    font-size: 52.6%
+
+%line
+    height: 60%
+    position: absolute
+    display: block
+    width: 1px
+    background: #c4c4c438
+    top: 50%
+    transform: translateY(-50%)
+    right: -20px
+%clearUl
+    list-style: none
+    display: flex
+    padding: 0
+
+@keyframes slideDown
+    0%
+        opacity: 0
+        transform: translateY(-40px)
+    70%
+        opacity: .3
+    100%
+        transform: translateY(0)
+        opacity: 1
+
+@keyframes fadeIn
+    0%
+        opacity: 0
+        transform: translateY(20px)
+    20%
+        transform: translateY(0)
+    100%
+        opacity: 1
+        

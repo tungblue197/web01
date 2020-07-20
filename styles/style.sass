@@ -1,0 +1,348 @@
+@import './base'
+
+// -----------------------------------> Topbar start <---------------------------------
+.topbar
+    background: $main-color1
+    color: #c4c4c4
+    font-size: 1.4rem
+    height: $topbar-height
+    line-height: 4rem
+    &__contact-list
+        @extend %clearUl
+        justify-content: flex-start
+    &__contact-item
+        position: relative
+        margin: 0 20px
+        cursor: pointer
+        &::after
+            content: ""
+            @extend %line
+            margin-right: .8rem
+        &:hover
+            color: #999
+        &:last-child
+            &::after
+                display: none
+                
+    &__info-list
+        @extend %clearUl
+        justify-content: flex-end
+    &__info-item
+        cursor: pointer
+        position: relative
+        margin: 0 20px
+        &::after
+            content: ""
+            @extend %line
+        &:hover
+            color: #999
+        &:last-child
+            &::after 
+                display: none
+// ----------------------------------> top bar end <--------------------------------- 
+
+// -------------------------------------> Header start <--------------------------------
+.header
+    font-size: 1.6rem
+    background: $white-color
+    &__logo
+        font-size: 3.2rem
+        width: 20rem
+        font-weight: 600
+        color: #282828
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, .3)
+        img
+            width: 100%
+            cursor: pointer
+    &__form
+        display: flex
+        border: 1px solid #e8e8e8
+        margin-left: auto
+        height: 4rem
+        max-width: 53rem
+        width: 100%
+        border-radius: 2px
+        overflow: hidden
+        &-select
+            height: 100%
+            .select-title
+                height: 100%
+                width: 18rem
+                display: flex
+                justify-content: space-between
+                align-items: center
+                padding: 0 10px 0 20px
+                cursor: pointer
+                position: relative
+                margin-right: 10px
+                i
+                    line-height: 0
+                    color: #afafaf
+                    margin-bottom: -1px
+                
+                &::after
+                    content: ""
+                    @extend %line
+                    right: 0px
+            .select-body
+                display: none
+        .search-input
+                height: 100% !important
+                position: relative
+                max-width: 33rem
+                width: 100%
+                i
+                    color: #afafaf
+                    position: absolute
+                    right: 6px
+                    font-size: 1.4rem
+                    top: 50%
+                    transform: translateY(-50%)
+                   
+
+                input
+                    height: 100%
+                    border: none
+                    outline: none
+                    width: 100%
+                    padding: 0 .6rem
+                    font-size: 1.4rem
+                    color: #afafaf
+                    &::placeholder
+                        font-size: 1.4rem
+                        color: #afafaf
+    .cart
+        border: 1px solid #53c4b0
+        display: flex
+        width: 14rem
+        height: 4rem
+        margin-left: 1rem
+        cursor: pointer
+        border-radius: 2px
+        overflow: hidden
+        &__icon
+            width: 4rem
+            height: 100%
+            background: #53c4b0
+            text-align: center
+            line-height: 4rem
+            color: #fff
+        &__body
+            flex: 1
+            font-size: 1.4rem
+            color: #3f3f3f
+            text-align: center
+            line-height: 3.7rem
+        &__costs
+            color: #535353
+            font-weight: 700
+.header-content
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: $header-height
+
+// ----------------------------------------> Header end <---------------------------------
+// ----------------------------------------> Nav start <---------------------------------
+.nav-content
+    height: 5rem
+    display: flex
+.nav
+    background: #fbfbfb
+    border: 1px solid #e8e8e8
+    &__shop-by-category
+        &:hover > .category-body-box
+            display: block
+            animation: fadeIn .4s ease-out                
+        width: 25rem
+        height: 100%
+        position: relative
+        .category-title-box
+            width: 100%
+            height: 100%
+            background: #fff
+            font-size: 1.6rem
+            line-height: 5rem
+            text-align: center
+            cursor: pointer
+            i
+                color: $sub-color
+                font-size: 1.6rem
+                margin-right: 2rem
+           
+    &__list
+        list-style: none
+        display: flex
+        padding: 0
+    &__item
+        display: inline-block
+        height: 5rem
+        position: relative
+        &:hover > .nav__sub-menu
+            display: block
+            animation: slideDown .3s ease-out
+    &__link
+        display: inline-block
+        text-transform: uppercase
+        font-size: 1.6rem
+        height: 100%
+        line-height: 5rem
+        color: #3f3f3f
+        padding: 0 calc( 48px / 2 )
+        
+        i
+            margin-left: .6rem
+        &--active
+            color: $sub-color
+        &:hover
+            color: $sub-color
+            text-decoration: none
+    &__sub-menu
+        position: absolute
+        border: 1px solid #e8e8e8
+        background-color: $white-color
+        right: 0
+        top: 120%
+        list-style: none
+        padding: 0
+        display: none
+        z-index: 99
+        &::before 
+            content: ""
+            position: absolute
+            width: 100%
+            height: 2rem
+            background: transparent
+            top: -2rem
+        &::after
+            position: absolute
+            content: ""
+            display: block
+            width: 0
+            height: 0
+            border-left: 5px solid transparent
+            border-right: 5px solid transparent
+            border-bottom: 5px solid #f3f3f3
+            top: -6px
+            right: 24px
+
+        .sub-menu__item
+            padding: 0
+            display: block
+        .sub-menu__link
+            color: #3f3f3f
+            text-decoration: none
+            display: block
+            width: 22rem
+            padding: 1.2rem 1.6rem
+            font-size: 1.6rem
+            border-bottom: 1px solid #e8e8e8
+            &:hover
+                background: $sub-color
+                color: #fff
+
+.category-body-box
+    display: none
+    position: absolute
+    border: 1px solid #e8e8e8
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .1)
+    width: 28rem
+    top: 5rem + 1rem
+    left: 0
+    background: $white-color
+    z-index: 99
+    
+    &::before
+        content: ""
+        position: absolute
+        display: block
+        width: 100%
+        height: 1rem
+        background: transparent
+        top: -1rem
+    .category__list
+        list-style: none
+        padding: 0
+        
+        .category__item
+            display: block
+            &:last-child a
+                border: none
+            
+        .category__link
+            display: block
+            text-transform: uppercase
+            font-size: 1.6rem
+            padding: .8rem 1.2rem
+            border-bottom: 1px solid #e8e8e8
+            color: #3f3f3f
+            &:hover
+                text-decoration: none
+                background: $sub-color
+                color: $white-color
+// --------------------------------> Content start <-------------------------------
+.content-wrapper
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.644), rgba(0, 0, 0, 0.568)), url('../images/bg.jpg')
+    background-size:cover
+
+
+.breadcrumb-page
+    max-width: 30rem
+    width: 100%
+    margin: 0 auto
+    padding-top: 4rem
+    color: $white-color
+    text-align: center
+    h1
+        font-size: 3rem
+    span
+        font-size: 1.4rem 
+
+.content
+    padding: 4rem 0
+    margin-top: 4rem
+    background-color: $white-color
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, .2)
+    height: 100vh
+    border-radius: 2px
+    overflow: hidden
+    .product-view
+        display: flex
+        justify-content: space-between
+        &__list-style
+            width: 12rem
+            .list-img
+                list-style: none
+                .slick-active
+                    border: 1px solid $sub-color
+                    box-shadow: 0px 0px 6px rgba(69, 247, 25, 0.3)
+                li
+                    margin-top: .8rem
+                    border: 1px solid #e8e8e8
+                    display: block
+                    
+                    img
+                        width: 100%
+        &__img-box
+            position: relative
+            flex: 1
+            max-width: 47rem
+            overflow: hidden
+            img
+                width: 100%
+            .slick-prev, .slick-next
+                position: absolute
+                z-index: 8
+                top: 50%
+                transform: translateY(-50%)
+                color: #ccc
+                i
+                    font-size: 4rem
+            .slick-next
+                left: 1rem
+            .slick-prev
+                right: 1rem
+                
+// product info
+.product-info
+    font-size: 1.6rem
